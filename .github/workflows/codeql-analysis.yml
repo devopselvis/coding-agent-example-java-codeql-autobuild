@@ -51,7 +51,8 @@ jobs:
           paths-ignore:
             - '**/test/**'
             - '**/tests/**'
-            - '**/*.test.java'
+            - '**/*Test.java'
+            - '**/*Tests.java'
 
     # Autobuild attempts to build any compiled languages (Java, C#, Go, etc.)
     # If this step fails, remove it and run the build manually instead
