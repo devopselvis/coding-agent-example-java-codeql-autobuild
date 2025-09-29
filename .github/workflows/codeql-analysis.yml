@@ -37,8 +37,8 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         queries: +security-and-quality
-        build-mode: autobuild
-        dependency-caching: false
+        build-mode: none
+        dependency-caching: true
 
     # Autobuild attempts to build any compiled languages (Java, C#, Go, etc.)
     # If this step fails, remove it and run the build manually instead
