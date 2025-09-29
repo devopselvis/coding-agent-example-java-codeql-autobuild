@@ -24,7 +24,7 @@ This application contains the following types of security vulnerabilities:
 4. **LDAP Injection** - Unescaped user input in LDAP filters
 5. **Weak Cryptography** - Use of MD5 and weak random number generation
 6. **Hard-coded Secrets** - Embedded credentials and encryption keys
-7. **Vulnerable Dependencies** - Uses `commons-collections:3.2.1` which has known deserialization vulnerabilities (CVE-2015-6420, CVE-2017-15708). This dependency appears in multiple paths in the dependency graph:
+7. **Vulnerable Dependencies** - Uses `commons-collections:3.2.1` which has known deserialization vulnerabilities (CVE-2015-7501). This dependency appears in multiple paths in the dependency graph:
    - As a direct dependency
    - As a transitive dependency through `commons-beanutils:1.9.2`
    - As a transitive dependency through `commons-digester:2.1` → `commons-beanutils:1.8.3`

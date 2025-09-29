@@ -9,8 +9,8 @@ This project demonstrates a vulnerable dependency (`commons-collections:3.2.1`) 
 **Package**: `commons-collections:3.2.1`
 
 **Known Vulnerabilities**:
-- CVE-2015-6420: Serialized-object interfaces in certain Cisco Collaboration and Social Media implementations allow remote attackers to execute arbitrary commands
-- CVE-2017-15708: InvokerTransformer code was present in commons-collections4 1.0-4.1 which allowed remote code execution
+- CVE-2015-7501: Apache Commons Collections InvokerTransformer class allows remote attackers to execute arbitrary Java code via crafted serialized objects
+- CVE-2015-6420: Similar remote code execution vulnerability through unsafe deserialization
 
 ### Dependency Paths
 
@@ -54,7 +54,13 @@ Example output:
 [INFO] |  \- (commons-collections:commons-collections:jar:3.2.1:compile - omitted for duplicate)
 [INFO] +- commons-digester:commons-digester:jar:2.1:compile
 [INFO] |  +- (commons-beanutils:commons-beanutils:jar:1.8.3:compile - omitted for conflict with 1.9.2)
+[INFO] |     \- (commons-collections:commons-collections:jar:3.2.1:compile - would be included)
 ```
+
+The key indicators are:
+- "omitted for duplicate" means the same dependency version is already included from another path
+- "omitted for conflict" means a different version of the same dependency is already included from another path
+- Both indicate multiple paths to the same or similar dependencies
 
 ### Why This Matters
 
