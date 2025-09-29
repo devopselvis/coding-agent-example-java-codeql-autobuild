@@ -10,7 +10,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
     
-    <name>Vulnerable Java Application</name>
+    <name>Vulnerable Java Application - Test</name>
     <description>A simple Java application with intentional vulnerabilities for CodeQL scanning demonstration</description>
     
     <properties>
