@@ -24,10 +24,15 @@ This application contains the following types of security vulnerabilities:
 4. **LDAP Injection** - Unescaped user input in LDAP filters
 5. **Weak Cryptography** - Use of MD5 and weak random number generation
 6. **Hard-coded Secrets** - Embedded credentials and encryption keys
-7. **Vulnerable Dependencies** - Uses `commons-collections:3.2.1` which has known deserialization vulnerabilities (CVE-2015-7501). This dependency appears in multiple paths in the dependency graph:
-   - As a direct dependency
-   - As a transitive dependency through `commons-beanutils:1.9.2`
-   - As a transitive dependency through `commons-digester:2.1` → `commons-beanutils:1.8.3`
+7. **Vulnerable Dependencies** - Multiple packages with known vulnerabilities:
+   - `commons-collections:3.2.1` - Deserialization vulnerabilities (CVE-2015-7501), appears in multiple paths:
+     - As a direct dependency
+     - As a transitive dependency through `commons-beanutils:1.9.2`
+     - As a transitive dependency through `commons-digester:2.1` → `commons-beanutils:1.8.3`
+   - `commons-fileupload:1.3.1` - Arbitrary file upload vulnerabilities (CVE-2016-1000031)
+   - `commons-codec:1.6` - Older version with potential vulnerabilities
+   - `commons-dbcp:1.4` - Database connection pool with transitive dependencies
+   - Additional transitive vulnerabilities through `commons-io:2.2` and `commons-pool:1.5.4`
 
 ## CodeQL Analysis
 
