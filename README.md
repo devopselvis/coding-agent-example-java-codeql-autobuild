@@ -24,6 +24,10 @@ This application contains the following types of security vulnerabilities:
 4. **LDAP Injection** - Unescaped user input in LDAP filters
 5. **Weak Cryptography** - Use of MD5 and weak random number generation
 6. **Hard-coded Secrets** - Embedded credentials and encryption keys
+7. **Vulnerable Dependencies** - Uses `commons-collections:3.2.1` which has known deserialization vulnerabilities (CVE-2015-6420, CVE-2017-15708). This dependency appears in multiple paths in the dependency graph:
+   - As a direct dependency
+   - As a transitive dependency through `commons-beanutils:1.9.2`
+   - As a transitive dependency through `commons-digester:2.1` → `commons-beanutils:1.8.3`
 
 ## CodeQL Analysis
 
@@ -45,7 +49,23 @@ mvn test
 
 # Run the application (demonstrates vulnerabilities)
 mvn exec:java -Dexec.mainClass="com.example.app.VulnerableApplication"
+
+# View dependency tree to see multiple paths to commons-collections
+mvn dependency:tree -Dverbose
 ```
+
+### Viewing Multiple Dependency Paths
+
+To see how `commons-collections:3.2.1` appears in multiple paths in the dependency graph, run:
+
+```bash
+mvn dependency:tree -Dverbose | grep -E "commons-collections|commons-beanutils|commons-digester"
+```
+
+Expected output shows `commons-collections:3.2.1` appearing as:
+- A direct dependency
+- A transitive dependency through `commons-beanutils` (marked as "omitted for duplicate")
+- A transitive dependency through `commons-digester` → `commons-beanutils`
 
 ## Warning
 
