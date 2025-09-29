@@ -1,4 +1,4 @@
-# coding-agent-example-java-codeql-autobuild
+# coding-agent-example-java-codeql-autobuild 
 
 A demonstration Java application with intentional security vulnerabilities for CodeQL scanning.
 
