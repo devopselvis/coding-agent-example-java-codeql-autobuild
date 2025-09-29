@@ -97,4 +97,26 @@ public class FileController {
             return null;
         }
     }
+    
+    /**
+     * VULNERABLE: Another command injection pattern using ProcessBuilder
+     */
+    public String executeSystemCommand(String cmd) {
+        try {
+            // VULNERABILITY: ProcessBuilder with unsanitized input
+            ProcessBuilder pb = new ProcessBuilder("/bin/sh", "-c", cmd);
+            Process process = pb.start();
+            
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            StringBuilder result = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                result.append(line).append("\n");
+            }
+            
+            return result.toString();
+        } catch (Exception e) {
+            return "Error: " + e.getMessage();
+        }
+    }
 }

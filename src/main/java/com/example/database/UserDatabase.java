@@ -67,4 +67,24 @@ public class UserDatabase {
             System.err.println("Update failed: " + e.getMessage());
         }
     }
+    
+    /**
+     * VULNERABLE: Dynamic query construction - another SQL injection pattern
+     */
+    public void deleteUser(String userIdParam) {
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            Statement stmt = conn.createStatement();
+            
+            // VULNERABILITY: Direct concatenation in DELETE statement
+            String sql = "DELETE FROM users WHERE id = " + userIdParam;
+            stmt.executeUpdate(sql);
+            
+            stmt.close();
+            conn.close();
+            
+        } catch (Exception e) {
+            System.err.println("Delete failed: " + e.getMessage());
+        }
+    }
 }

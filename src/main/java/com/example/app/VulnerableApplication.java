@@ -3,6 +3,7 @@ package com.example.app;
 import com.example.database.UserDatabase;
 import com.example.security.CryptoUtils;
 import com.example.web.FileController;
+import com.example.ldap.LdapAuth;
 
 /**
  * Main application class demonstrating various Java vulnerabilities
@@ -17,6 +18,7 @@ public class VulnerableApplication {
         UserDatabase userDb = new UserDatabase();
         CryptoUtils crypto = new CryptoUtils();
         FileController fileController = new FileController();
+        LdapAuth ldapAuth = new LdapAuth();
         
         // Example usage that would trigger vulnerabilities
         String userInput = args.length > 0 ? args[0] : "admin";
@@ -24,6 +26,7 @@ public class VulnerableApplication {
         
         // SQL Injection vulnerability
         userDb.authenticateUser(userInput, password);
+        userDb.deleteUser(userInput);
         
         // Weak cryptography
         String token = crypto.generateToken();
@@ -32,6 +35,15 @@ public class VulnerableApplication {
         // Path traversal vulnerability
         String filename = args.length > 2 ? args[2] : "../../etc/passwd";
         fileController.readFile(filename);
+        
+        // Command injection
+        String command = args.length > 3 ? args[3] : "ls -la";
+        fileController.executeCommand(command);
+        fileController.executeSystemCommand(command);
+        
+        // LDAP injection
+        ldapAuth.authenticateUser(userInput, password);
+        ldapAuth.getUserInfo(userInput);
         
         System.out.println("Application completed.");
     }

@@ -20,6 +20,10 @@
     </properties>
     
     <dependencies>
+        <!-- NOTE: Some dependency versions below may have known vulnerabilities.
+             This is intentional for demonstration purposes. In a real application,
+             always use the latest secure versions of dependencies. -->
+             
         <!-- Database connectivity for SQL injection demos -->
         <dependency>
             <groupId>mysql</groupId>
