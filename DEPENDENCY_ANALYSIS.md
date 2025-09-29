@@ -2,7 +2,7 @@
 
 ## Vulnerable Dependency in Multiple Paths
 
-This project demonstrates vulnerable dependencies appearing in multiple paths in the dependency graph, as well as additional vulnerable packages with their own transitive dependencies.
+This project demonstrates vulnerable dependencies that appear in multiple dependency graph paths, along with additional vulnerable packages that have their own transitive dependencies.
 
 ### Primary Vulnerable Package: commons-collections
 
@@ -104,7 +104,7 @@ This repository intentionally includes this pattern to demonstrate how dependenc
 - How vulnerabilities cascade through dependency chains
 - The importance of Software Composition Analysis (SCA)
 - How GitHub's dependency graph visualizes these complex relationships
-- The "..." ellipsis menu that appears in GitHub's UI when packages have additional information, vulnerabilities, or multiple dependency paths
+- The "..." ellipsis menu that appears in GitHub's UI when packages have additional information, vulnerabilities, or multiple dependency paths. This menu provides access to vulnerability details, remediation suggestions, and dependency path information.
 
 ## Viewing the Full Dependency Graph
 

@@ -29,7 +29,7 @@ This application contains the following types of security vulnerabilities:
      - As a direct dependency
      - As a transitive dependency through `commons-beanutils:1.9.2`
      - As a transitive dependency through `commons-digester:2.1` → `commons-beanutils:1.8.3`
-   - `commons-fileupload:1.3.1` - File upload vulnerabilities (CVE-2016-1000031)
+   - `commons-fileupload:1.3.1` - Arbitrary file upload vulnerabilities (CVE-2016-1000031)
    - `commons-codec:1.6` - Older version with potential vulnerabilities
    - `commons-dbcp:1.4` - Database connection pool with transitive dependencies
    - Additional transitive vulnerabilities through `commons-io:2.2` and `commons-pool:1.5.4`
