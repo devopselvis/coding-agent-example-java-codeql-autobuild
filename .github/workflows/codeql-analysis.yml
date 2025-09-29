@@ -32,6 +32,9 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
 
+    # Initialize CodeQL with custom configuration
+    # - Excludes specific queries that may generate noise
+    # - Ignores test paths to focus on production code
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
