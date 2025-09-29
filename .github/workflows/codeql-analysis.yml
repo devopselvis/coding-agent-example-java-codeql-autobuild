@@ -42,8 +42,8 @@ jobs:
 
     # Autobuild attempts to build any compiled languages (Java, C#, Go, etc.)
     # If this step fails, remove it and run the build manually instead
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
+    #- name: Autobuild
+    #  uses: github/codeql-action/autobuild@v3
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
