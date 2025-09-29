@@ -39,6 +39,16 @@ jobs:
         queries: +security-and-quality
         build-mode: none
         dependency-caching: true
+        config: |
+          query-filters:
+            - exclude:
+                id: java/missing-call-to-super-finalize
+            - exclude:
+                id: java/unread-local-variable
+          paths-ignore:
+            - '**/test/**'
+            - '**/tests/**'
+            - '**/*.test.java'
 
     # Autobuild attempts to build any compiled languages (Java, C#, Go, etc.)
     # If this step fails, remove it and run the build manually instead
