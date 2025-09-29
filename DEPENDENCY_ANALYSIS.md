@@ -9,8 +9,8 @@ This project demonstrates a vulnerable dependency (`commons-collections:3.2.1`) 
 **Package**: `commons-collections:3.2.1`
 
 **Known Vulnerabilities**:
-- CVE-2015-7501: Apache Commons Collections InvokerTransformer class allows remote attackers to execute arbitrary Java code via crafted serialized objects
-- CVE-2015-6420: Similar remote code execution vulnerability through unsafe deserialization
+- CVE-2015-7501: Apache Commons Collections InvokerTransformer class allows remote attackers to execute arbitrary Java code via crafted serialized objects through unsafe deserialization
+- This vulnerability affects commons-collections versions 3.0 through 3.2.1
 
 ### Dependency Paths
 
